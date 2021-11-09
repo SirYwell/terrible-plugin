@@ -9,6 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: 'report/qodana.sarif.json'
       - uses: SirYwell/sarif-annotator@fc97fb0388801ef9df37e0f55247e4586b7bc7cb
         with:
           report-path: 'report/qodana.sarif.json'
