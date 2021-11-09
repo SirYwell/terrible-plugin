@@ -10,6 +10,6 @@ jobs:
     steps:
       - uses: SirYwell/sarif-annotator@fc97fb0388801ef9df37e0f55247e4586b7bc7cb
         with:
-          report-path: 'report/qodana.json'
+          report-path: 'report/qodana.sarif.json'
           source: 'qodana'
 
