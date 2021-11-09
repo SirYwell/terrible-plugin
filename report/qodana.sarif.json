@@ -49651,7 +49651,61 @@
           }
         }
       ],
-      "results": [],
+      "results": [
+        {
+          "ruleId": "EqualsWithItself",
+          "kind": "fail",
+          "level": "warning",
+          "message": {
+            "text": "<code>equalsIgnoreCase()</code> called on itself"
+          },
+          "locations": [
+            {
+              "physicalLocation": {
+                "artifactLocation": {
+                  "uri": "src/main/java/dev/jaims/terribleplugin/listener/NotSuspiciousBlockBreakListener.java",
+                  "uriBaseId": "SRCROOT"
+                },
+                "region": {
+                  "startLine": 69,
+                  "startColumn": 40,
+                  "charOffset": 3715,
+                  "charLength": 16,
+                  "snippet": {
+                    "text": "equalsIgnoreCase"
+                  },
+                  "sourceLanguage": "JAVA"
+                },
+                "contextRegion": {
+                  "startLine": 67,
+                  "startColumn": 1,
+                  "charOffset": 3602,
+                  "charLength": 224,
+                  "snippet": {
+                    "text": "                                    }\n                                });\n                                if (\"\".equalsIgnoreCase(\"\")) {\n                                    try {\n                                        gc();"
+                  }
+                }
+              },
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "terrible-plugin.main",
+                  "kind": "module"
+                }
+              ]
+            }
+          ],
+          "partialFingerprints": {
+            "equalIndicator/v1": "dbe01d6a002c9596e0abab26b1725dc82bc39ab10cf3b668e708c110624c7792"
+          },
+          "baselineState": "unchanged",
+          "properties": {
+            "ideaSeverity": "WARNING",
+            "tags": [
+              "ideaSeverity"
+            ]
+          }
+        }
+      ],
       "automationDetails": {
         "id": "terrible-plugin - 11/9/21, 10:51 AM",
         "guid": "d24cf5d6-9477-44f9-b1bf-5627742af128"
