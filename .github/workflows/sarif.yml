@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: SirYwell/sarif-annotator@28fde1ff5c3771183ebdf143bb53578a98f20aac
+      - uses: SirYwell/sarif-annotator@93aed1597275aa9961b6e700a2397782bb9e20b4
         with:
           report-path: 'report/qodana.sarif.json'
           source: 'qodana'
