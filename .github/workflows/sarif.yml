@@ -18,12 +18,8 @@ jobs:
       - name: Qodana - Code Inspection
         id: qodana
         uses: JetBrains/qodana-action@v3.2.1
-      - name: Debug
-        run: |
-          echo "Hello World!"
-          echo ${{ steps.qodana.outputs.result-json-path }}
       - name: SARIF Annotator
-        uses: SirYwell/sarif-annotator@v0.1.0
+        uses: SirYwell/sarif-annotator@29512b74b4db8fefc8981dce940363dca6f45859
         with:
           source: qodana
           report-path: ${{ steps.qodana.outputs.results-json-path }}
