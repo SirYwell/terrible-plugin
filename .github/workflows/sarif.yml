@@ -26,4 +26,4 @@ jobs:
         uses: SirYwell/sarif-annotator@v0.1.0
         with:
           source: qodana
-          report-path: ${{ steps.qodana.outputs.result-json-path }}
+          report-path: ${{ steps.qodana.outputs.results-json-path }}
