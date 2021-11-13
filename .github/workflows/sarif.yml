@@ -19,7 +19,7 @@ jobs:
         id: qodana
         uses: JetBrains/qodana-action@v3.2.1
       - name: SARIF Annotator
-        uses: SirYwell/sarif-annotator@29512b74b4db8fefc8981dce940363dca6f45859
+        uses: SirYwell/sarif-annotator@b0c46b2ddbb44b1f58eae3eea9453786381d79b3
         with:
           source: qodana
           report-path: ${{ steps.qodana.outputs.results-json-path }}
