@@ -1,0 +1,49 @@
+name: code quality
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  code-quality:
+    runs-on: ubuntu-latest
+    name: code-quality qodana
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          path: pull_request
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          path: master
+          ref: master
+      - uses: actions/setup-java@v2
+        with:
+          java-version: 11
+          distribution: temurin
+      - name: "Create folder"
+        run: "mkdir -p ${{ github.workspace }}/result/master"
+      - name: Qodana - Code Inspection
+        uses: JetBrains/qodana-action@v3.2.1
+        with:
+          project-dir: "${{ github.workspace }}/master"
+          results-dir: "${{ github.workspace }}/result/master"
+      - name: Qodana - Code Inspection
+        id: qodana
+        uses: JetBrains/qodana-action@v3.2.1
+        with:
+          project-dir: "${{ github.workspace }}/pull_request"
+          baseline-path: "/data/results/master/qodana.sarif.json"
+          baseline-include-absent: true
+          results-dir: "${{ github.workspace }}/result"
+          fail-threshold: 1
+      - name: SARIF Annotator
+        uses: SirYwell/sarif-annotator@499d3a886787a992ca759de24b371f404c1ad93a
+        with:
+          source: qodana
+          report-path: ${{ steps.qodana.outputs.results-json-path }}
+          baseline-state-filter: 'new'
