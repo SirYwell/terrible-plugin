@@ -39,7 +39,7 @@ jobs:
           results-dir: "${{ github.workspace }}/result"
           fail-threshold: 1
       - name: SARIF Annotator
-        uses: SirYwell/sarif-annotator@b0c46b2ddbb44b1f58eae3eea9453786381d79b3
+        uses: SirYwell/sarif-annotator@499d3a886787a992ca759de24b371f404c1ad93a
         with:
           source: qodana
           report-path: ${{ steps.qodana.outputs.results-json-path }}
